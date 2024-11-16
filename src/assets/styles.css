@@ -1,1 +1,14 @@
 /* Your Styles */
+tcg-card {
+    width: 150px;
+}
+
+article {
+    display: flex;
+    gap: 1em;
+}
+
+article .content {
+    display: flex;
+    flex-direction: column;
+}
