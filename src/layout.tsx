@@ -11,6 +11,7 @@ export const Layout: FC = (props) => {
 				<link rel="stylesheet" href="/assets/styles.css" />
 				<script src="/assets/htmx@2.0.1.min.js" />
 				<script src="/assets/alpinejs@3.14.1.min.js" />
+				<script src="/assets/tcg-card.js" />
 			</head>
 			<body>
 				<main class="container">{props.children}</main>
