@@ -1,7 +1,5 @@
-import { sql, type InferSelectModel } from 'drizzle-orm';
+import { sql, type InferSelectModel, InferInsertModel } from 'drizzle-orm';
 import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core';
-import { createInsertSchema } from 'drizzle-zod';
-import { EEVEELUTIONS } from '../utils/eeveelutions';
 
 export const cards = sqliteTable('cards', {
 	id: text('id').primaryKey(),
@@ -9,7 +7,6 @@ export const cards = sqliteTable('cards', {
 		.notNull()
 		.default(sql`(CURRENT_TIMESTAMP)`),
 	cardName: text('cardName').notNull(),
-	pokemonName: text("pokemonName", {enum: EEVEELUTIONS}).notNull(),
 	pokedexNumber: integer('pokedexNumber').notNull(),
 	imageSmall: text('imageSmall').notNull(),
 	imageLarge: text('imageLarge').notNull(),
@@ -21,4 +18,4 @@ export const cards = sqliteTable('cards', {
 });
 
 export type Card = InferSelectModel<typeof cards>;
-export const insertCardSchema = createInsertSchema(cards);
+export type InsertCard = InferInsertModel<typeof cards>;
