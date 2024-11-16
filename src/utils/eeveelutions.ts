@@ -5,12 +5,26 @@ export const EEVEELUTIONS = [
 	'Vaporeon',
 	'Jolteon',
 	'Flareon',
-	'Sylveon',
 	'Espeon',
 	'Umbreon',
 	'Leafeon',
 	'Glaceon',
+	'Sylveon',
 ] as const;
+
+type Eeveelution = typeof EEVEELUTIONS[number];
+
+export const EEVEELUTION_POKEDEX_NUMBERS: {[name in Eeveelution]: number} = {
+	'Eevee': 133,
+	'Vaporeon': 134,
+	'Jolteon': 135,
+	'Flareon': 136,
+	'Espeon': 196,
+	'Umbreon': 197,
+	'Leafeon': 470,
+	'Glaceon': 471,
+	'Sylveon': 700,
+} as const;
 
 async function fetchCardsFor(name: string) {
 	return PokemonTCG.findCardsByQueries({ q: `name:${name}` });
