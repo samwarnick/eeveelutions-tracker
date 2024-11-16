@@ -13,7 +13,7 @@ export const cards = sqliteTable('cards', {
 	setId: text('setId').notNull(),
 	setName: text('setName').notNull(),
 	setReleaseDate: text('setReleaseDate').notNull(),
-	tcgPlayerUrl: text('tcgPlayerUrl'),
+	cardUrl: text('cardUrl').notNull(),
 	marketPrice: integer('marketPrice').notNull(),
 	owned: integer('owned', {mode: "boolean"}).notNull().default(false)
 });
