@@ -14,7 +14,10 @@ export const Layout: FC = (props) => {
 				<script role="module" src="/assets/tcg-card.js" />
 			</head>
 			<body>
-				<main class="container">{props.children}</main>
+				<main class="container">
+					<h1>Eeveelutions</h1>
+					{props.children}
+				</main>
 			</body>
 		</html>
 	);
