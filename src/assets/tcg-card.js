@@ -3,19 +3,6 @@ const EXPAND_TRANSITION_TIME = 600;
 class TCGCard extends HTMLElement {
 	constructor() {
 		super();
-
-		this.handleMouseEnter = this.handleMouseEnter.bind(this);
-		this.handleMouseMove = this.handleMouseMove.bind(this);
-		this.handleMouseLeave = this.handleMouseLeave.bind(this);
-		this.handleTouchStart = this.handleTouchStart.bind(this);
-		this.handleTouchMove = this.handleTouchMove.bind(this);
-		this.handleTouchEnd = this.handleTouchEnd.bind(this);
-		this.handleClick = this.handleClick.bind(this);
-		this.handleResize = this.handleResize.bind(this);
-		this.resetCardPosition = this.resetCardPosition.bind(this);
-	}
-
-	connectedCallback() {
 		const template = document.createElement("template");
 		template.innerHTML = `
 <style>
@@ -142,6 +129,18 @@ class TCGCard extends HTMLElement {
 		this._shadowRoot = this.attachShadow({ mode: "closed" });
 		this._shadowRoot.appendChild(template.content.cloneNode(true));
 
+		this.handleMouseEnter = this.handleMouseEnter.bind(this);
+		this.handleMouseMove = this.handleMouseMove.bind(this);
+		this.handleMouseLeave = this.handleMouseLeave.bind(this);
+		this.handleTouchStart = this.handleTouchStart.bind(this);
+		this.handleTouchMove = this.handleTouchMove.bind(this);
+		this.handleTouchEnd = this.handleTouchEnd.bind(this);
+		this.handleClick = this.handleClick.bind(this);
+		this.handleResize = this.handleResize.bind(this);
+		this.resetCardPosition = this.resetCardPosition.bind(this);
+	}
+
+	connectedCallback() {
 		this.id = (Math.random() + 1).toString(36).substring(7);
 
 		this.card = this._shadowRoot.querySelector(".tcg-display");
