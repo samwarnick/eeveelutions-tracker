@@ -6,9 +6,16 @@ tcg-card {
 article {
     display: flex;
     gap: 1em;
-}
 
-article .content {
-    display: flex;
-    flex-direction: column;
+    .content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    a {
+        padding-bottom: 1em;
+    }
+    button {
+        max-width: 240px;
+    }
 }

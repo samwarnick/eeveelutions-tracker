@@ -12,7 +12,7 @@ export const EEVEELUTIONS = [
 	'Sylveon',
 ] as const;
 
-type Eeveelution = typeof EEVEELUTIONS[number];
+export type Eeveelution = typeof EEVEELUTIONS[number];
 
 export const EEVEELUTION_POKEDEX_NUMBERS: {[name in Eeveelution]: number} = {
 	'Eevee': 133,
