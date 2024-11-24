@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "bun run --hot src/index.tsx",
     "prod-setup": "bun install && bun db:migrate",
-    "prod": "bun run scripts/env-gen.ts && db:migrate && bun run src/db/update.ts && bun run src/index.tsx",
+    "prod": "bun run src/utils/env-gen.ts && db:migrate && bun run src/db/update.ts && bun run src/index.tsx",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "bun src/db/migrate.ts",
     "db:seed": "bun src/db/seed.ts",
