@@ -9,7 +9,7 @@ import { sql } from 'drizzle-orm';
 import {
 	Price,
 } from 'pokemon-tcg-sdk-typescript/dist/interfaces/tcgplayer';
-import * as process from 'node:process';
+console.log('Updating Eeveelution cards...')
 
 const POSSIBLE_POKEDEX_NUMBERS = Object.values(EEVEELUTION_POKEDEX_NUMBERS);
 
@@ -52,3 +52,5 @@ await db
 			marketPrice: sql.raw(`excluded.${cards.marketPrice.name}`),
 		},
 	});
+
+console.log("Done!");
