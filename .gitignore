@@ -1,6 +1,5 @@
 node_modules
 .env
 .env.*
-sqlite.db
+db/sqlite.db
 .idea
-db
