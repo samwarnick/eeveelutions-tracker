@@ -10,6 +10,7 @@ import { CardList } from './components/cardList';
 import { OwnedButton } from './components/ownedButton';
 import { z } from 'zod';
 import { basicAuth } from 'hono/basic-auth';
+import { Serve } from 'bun';
 
 const app = new Hono();
 
@@ -59,7 +60,4 @@ app.patch(
 	},
 );
 
-export default {
-	port: Bun.env.PORT || 3000,
-	fetch: app.fetch
-};
+export default app;
