@@ -60,6 +60,6 @@ app.patch(
 );
 
 export default {
-	port: Bun.env.port || 3000,
+	port: Bun.env.PORT || 3000,
 	fetch: app.fetch
 };
