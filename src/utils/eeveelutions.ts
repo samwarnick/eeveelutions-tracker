@@ -27,6 +27,7 @@ export const EEVEELUTION_POKEDEX_NUMBERS: {[name in Eeveelution]: number} = {
 } as const;
 
 async function fetchCardsFor(name: string) {
+	console.log(`Fetching ${name}...`);
 	return PokemonTCG.findCardsByQueries({ q: `name:${name}` });
 }
 
