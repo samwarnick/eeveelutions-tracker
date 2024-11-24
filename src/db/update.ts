@@ -17,6 +17,8 @@ try {
 
 	const eeveelutionCards = await fetchCardsForEeveelutions();
 
+	console.log("Done fetching!");
+
 	const cardModels: InsertCard[] = eeveelutionCards.map((card) => ({
 		id: card.id,
 		cardName: card.name,
@@ -31,7 +33,6 @@ try {
 		cardUrl: card.tcgplayer?.url ?? (card as any).cardmarket?.url ?? "",
 		marketPrice: getMarketPrice(card),
 	}));
-
 
 	function getMarketPrice(card: Card): number {
 		const tcgPlayerPrices = (card.tcgplayer?.prices as { [key: string]: Price }) ?? {};
@@ -59,6 +60,6 @@ try {
 
 	console.log("Done!");
 } catch (e) {
-	console.error(e);
+	console.log(e);
 }
 

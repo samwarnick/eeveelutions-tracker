@@ -26,13 +26,19 @@ export const EEVEELUTION_POKEDEX_NUMBERS: {[name in Eeveelution]: number} = {
 	'Sylveon': 700,
 } as const;
 
-async function fetchCardsFor(name: string) {
+function fetchCardsFor(name: string) {
 	console.log(`Fetching ${name}...`);
 	return PokemonTCG.findCardsByQueries({ q: `name:${name}` });
 }
 
 export async function fetchCardsForEeveelutions() {
-	return (await Promise.all(EEVEELUTIONS.map(fetchCardsFor))).flatMap(
-		(cards) => cards,
-	);
+	try {
+		const results = await Promise.all(EEVEELUTIONS.map(fetchCardsFor))
+		return results.flatMap(
+			(cards) => cards,
+		);
+	} catch (e) {
+		console.log(e);
+		return [];
+	}
 }
